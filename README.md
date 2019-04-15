@@ -44,7 +44,7 @@ workflow "Triage" {
 
 action "Assign MonaLisa" {
   uses = "actions/github@v1.0.0"
-  args = "assign @monalisaoctocat --action=opened" # Only when issues are opened!
+  args = "assign monalisaoctocat --action=opened" # Only when issues are opened!
   secrets = ["GITHUB_TOKEN"]
 }
 ```
