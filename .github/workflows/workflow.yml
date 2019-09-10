@@ -3,8 +3,7 @@ name: Main workflow
 on: [push]
 
 jobs:
-  formatting:
-    name: Formatting
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
