@@ -1,0 +1,22 @@
+name: Main workflow
+
+on: [push]
+
+jobs:
+  formatting:
+    name: Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Formatting
+        uses: actions/npm@v2.0.0
+        with:
+          entrypoint: npx
+          args: prettier -c --no-semi --no-bracket-spacing --single-quote entrypoint.js
+
+      - name: Lint
+        uses: actions/npm@v2.0.0
+        with:
+          entrypoint: npx
+          args: eslint --no-eslintrc --env es6 --parser-options ecmaVersion:2018 entrypoint.js
